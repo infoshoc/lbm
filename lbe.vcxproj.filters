@@ -46,5 +46,8 @@
     <Text Include="density.log">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="velocity_abs.log">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

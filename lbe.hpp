@@ -58,6 +58,23 @@ void save_velocity( const char *filename ){
 	}
 	fclose ( fh );
 }
+void save_velocity_abs( const char *filename ){
+	static int save_time = 0;
+	++save_time;
+	FILE *fh = fopen ( filename, "a" );
+	if ( fh == NULL ) {
+		fprintf ( stderr, "Cannot open %s for append\n", filename );
+		return;
+	}
+	fprintf ( fh, "%d\n", save_time );
+	for (int y = 0; y < HEIGHT; y++){
+		for (int x = 0; x < WIDTH; x++){
+			fprintf ( fh, "%e\t", u[y][x].length() );
+		}
+		fputc ( '\n', fh );
+	}
+	fclose ( fh );
+}
 void save_velocity_x( const char *filename ){
 	static int save_time = 0;
 	++save_time;
@@ -257,6 +274,7 @@ void step(){
 	save_particles("lattice.log");
 	save_density("density.log");
 	save_velocity_x ( "velocity_x.log" );
+	save_velocity_abs ( "velocity_abs.log" );
 #endif
 }
 void set_circle_obstacle( const int x0, const int y0, const int radius ){

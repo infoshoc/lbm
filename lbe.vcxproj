@@ -81,6 +81,7 @@
     <Text Include="density.log" />
     <Text Include="lattice.log" />
     <Text Include="velocity.log" />
+    <Text Include="velocity_abs.log" />
     <Text Include="velocity_x.log" />
     <Text Include="velocity_y.log" />
   </ItemGroup>
